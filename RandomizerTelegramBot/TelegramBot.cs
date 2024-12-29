@@ -110,7 +110,7 @@ public class TelegramBot
         if (endChar <= startChar) 
             return "error";
 
-        var charRange = Enumerable.Range(startChar, endChar).Select(c => (char)c).ToArray();
+        var charRange = Enumerable.Range(startChar, endChar - startChar + 1).Select(c => (char)c).ToArray();
         _random.Shuffle(charRange);
 
         return $"[{string.Join(", ", charRange)}]";
@@ -130,7 +130,7 @@ public class TelegramBot
         if (endChar <= startChar)
             return "error";
 
-        var range = Enumerable.Range(startChar, endChar).Select(c => (char)c).ToArray();
+        var range = Enumerable.Range(startChar, endChar - startChar + 1).Select(c => (char)c).ToArray();
         _random.Shuffle(range);
 
         return $"{range.First()}";
